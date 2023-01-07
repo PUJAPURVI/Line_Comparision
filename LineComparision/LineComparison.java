@@ -1,10 +1,96 @@
 package com.LineComparision;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Puja
+ */
+
 public class LineComparison {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Line Comparison Problem!");
+
+    /**
+     * Method used for calculate the length of line
+     * @param x1 = 1st point at line x
+     * @param x2 = 2nd point at line x
+     * @param y1 = 1st point at line y
+     * @param y2 = 2nd point at line y
+     */
+
+    public static double lengthOfLine(double x1, double x2, double y1, double y2) { // UC1 to check the Length of the Line
+        double dis = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        System.out.print("Distance between " + "(" + x1 + "," + y1 + ")," + "(" + x2 + "," + y2 + ")===> ");
+
+        return dis;
     }
 
+    /**
+     *
+     * Method used for comparison of line 1&2
+     * @param line1= length of line 1
+     * @param line2= length of line 2
+     */
+    public static void CompareLines(double line1, double line2) {// CompareLine method added to compare 2 lengths of lines
+        Double obj1 = line1;
+        Double obj2 = line2;
+        if (obj1.equals(obj2)) { // UC2 to check equality of line1 and line2
+            System.out.println("Lengths of Line1 and Line 2 are same");
+        } else {
+            System.out.println("Lengths of Line1 and Line2 are not same");
+        }
+        int n = obj2.compareTo(obj1);
+        System.out.println();
+        if (n == 0) {
+            System.out.println("Line1 and Line2 are Equal!");
+        } else if (n == 1) {
+            System.out.println("Line2 is greater than Line1");
+        } else {
+            System.out.println("Line1 is greater than Line2");
+        }
+    }
 
-}
+    /**
+     *
+     * @param args
+     * if output is 0 the length is same
+     * if output is 1 then the length of line2 is greater than line1
+     * if output is -1 then the length of line1 is greater than line2
+     */
+    public static void main(String[] args) {
+        System.out.println("Welcome to Line Comparison Problem!");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Line 1 Coordinates:");
+
+        System.out.println("Enter x1 y1:");
+        double x1 = sc.nextDouble();
+        double y1 = sc.nextDouble();
+
+        System.out.println("Enter x2 y2: ");
+        double x2 = sc.nextDouble();
+        double y2 = sc.nextDouble();
+
+        /**
+         *   // UC1 to calculate the length of line
+         */
+        System.out.print("Length of Line1 is : ");// Line1 Length
+        double line1 = lengthOfLine(x1, x2, y1, y2);
+        System.out.println(line1);
+
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Enter Line 2 Coordinates:");// Line2 Length
+
+        System.out.println("Enter x1 y1:");
+        double a1 = sc.nextDouble();
+        double b1 = sc.nextDouble();
+
+        System.out.println("Enter x2 y2: ");
+        double a2 = sc.nextDouble();
+        double b2 = sc.nextDouble();
+
+        System.out.print("Length of Line2 is : ");
+        double line2 = lengthOfLine(a1, a2, b1, b2);
+        System.out.println(line2);
+
+        CompareLines(line1, line2);
+    }
+    }
