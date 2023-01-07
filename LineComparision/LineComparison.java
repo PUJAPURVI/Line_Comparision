@@ -17,8 +17,8 @@ public class LineComparison {
      */
 
     public static double lengthOfLine(double x1, double x2, double y1, double y2) { // UC1 to check the Length of the Line
-        double dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
-        System.out.print("Distance between "+"("+x1+","+y1+"),"+"("+x2+","+y2+")===> ");
+        double dis = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        System.out.print("Distance between " + "(" + x1 + "," + y1 + ")," + "(" + x2 + "," + y2 + ")===> ");
 
         return dis;
     }
@@ -74,5 +74,12 @@ public class LineComparison {
         else{
             System.out.println("Lengths of Line1 and Line2 are not same");
         }
+        /**
+         * if output is 0 the length is same
+         * if output is 1 then the length of line2 is greater than line1
+         * if output is -1 then the length of line1 is greater than line2
+         */
+        System.out.println();
+        System.out.println(obj2.compareTo(obj1));
     }
 }
